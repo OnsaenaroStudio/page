@@ -2,6 +2,7 @@
 
 import { Github } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
+import { CyclingText } from "@/components/CyclingText";
 
 const works = [
   { id: "01", title: "준비 중입니다", category: "Coming Soon", year: "2026", link: "https://github.com/OnsaenaroStudio" },
