@@ -218,15 +218,15 @@ export default function Home() {
             fontSize: "clamp(56px, 9vw, 120px)",
             fontWeight: 400, lineHeight: 0.92, letterSpacing: "-0.02em", marginBottom: 48,
           }}>
-            <span className="hero-word grad-text" style={{ display: "block" }}>새로운 길을</span>
-            <span className="hero-word" style={{ display: "block", fontStyle: "italic" }}>개척합니다.</span>
+            <span className="hero-word grad-text" style={{ display: "block" }}>온새나로 스튜디오</span>
+            <span className="hero-word" style={{ display: "block", fontStyle: "italic" }}>새로운 길로 나아가다.</span>
           </h1>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 48 }}>
             <p className="font-serif" style={{
               fontSize: 15, lineHeight: 1.9, color: "#444", maxWidth: 380, fontWeight: 300,
             }}>
-              설명
+              임시 설명
             </p>
             <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
               <a href = "#projects" style={{ textDecoration: "none" }} className="grad-border-btn">
@@ -334,7 +334,7 @@ export default function Home() {
             fontSize: "clamp(36px, 5vw, 64px)",
             fontWeight: 400, lineHeight: 1.0, letterSpacing: "-0.02em",
           }}>
-            WORKS
+            PROJECTS
           </h2>
         </div>
         <div style={{
@@ -375,8 +375,8 @@ export default function Home() {
               fontWeight: 400, lineHeight: 1.05, letterSpacing: "-0.02em", marginBottom: 32,
             }}>
               온새나로는<br />
-              <span className="grad-text">자연스러움으로</span><br />
-              <span style={{ fontStyle: "italic" }}>코드를 짭니다.</span>
+              <span className="grad-text">잠재성을 지닌</span><br />
+              <span style={{ fontStyle: "italic" }}>프로젝트를 제작합니다.</span>
             </h2>
             <p className="font-serif" style={{
               fontSize: 14, lineHeight: 2.0, color: "#555", fontWeight: 300, marginBottom: 40,
@@ -452,8 +452,8 @@ export default function Home() {
             fontWeight: 400, lineHeight: 0.95, letterSpacing: "-0.03em",
             color: "#FAFAFA", marginBottom: 48,
           }}>
-            새로운 시작을<br />
-            <span className="grad-text">함께 만들어요.</span>
+            <span className="grad-text">새로운 시작</span>을<br />
+            <span className="grad-text">함께</span>만들어가시겠습니까?
           </h2>
           {/* mailto:contact@onsaenaro.site */}
           <a href = "mailto:contact@onsaenaro.site" className="grad-border-btn grad-border-btn-dark" style={{ fontSize: 12, padding: "18px 48px" }}>
