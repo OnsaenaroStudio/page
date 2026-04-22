@@ -220,7 +220,13 @@ export default function Home() {
             fontWeight: 400, lineHeight: 0.92, letterSpacing: "-0.02em", marginBottom: 48,
           }}>
             <span className="hero-word grad-text" style={{ display: "block" }}>온새나로 스튜디오</span>
-            <span className="hero-word" style={{ display: "block", fontStyle: "italic" }}>새로운 길로 나아가다.</span>
+            <span className="hero-word" style={{
+              display: "block",
+              fontStyle: "italic",
+              fontSize: "clamp(20px, 3vw, 40px)",
+            }}>
+  새로운 길로 나아가다.
+</span>
           </h1>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 48 }}>
