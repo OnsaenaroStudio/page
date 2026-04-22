@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: #95CAF9;
+  color: #0A0A0A;
+}
+
+.grad-text {
+  background: linear-gradient(135deg, #95E6FA 0%, #95CAF9 48.96%, #9EA4F2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-link {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #0A0A0A;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #95E6FA, #9EA4F2);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.grad-border-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 14px 32px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #0A0A0A;
+  font-weight: 600;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.grad-border-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(135deg, #95E6FA 0%, #95CAF9 48.96%, #9EA4F2 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.grad-border-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #95E6FA 0%, #95CAF9 48.96%, #9EA4F2 100%);
+  opacity: 0;
+  z-index: -2;
+  transition: opacity 0.3s ease;
+}
+
+.grad-border-btn:hover::after {
+  opacity: 1;
+}
+
+.grad-border-btn:hover {
+  color: #0A0A0A;
+}
+
+.grad-border-btn-dark {
+  color: #FAFAFA;
+}
+
+.grad-border-btn-dark:hover {
+  color: #0A0A0A;
+}
+
+.work-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto auto auto;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+  border-top: 1px solid #E8E8E8;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.work-row:last-child {
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.work-row:hover {
+  padding-left: 16px;
+}
+
+.work-row:hover .work-title {
+  background: linear-gradient(135deg, #95E6FA 0%, #95CAF9 48.96%, #9EA4F2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.work-row:hover .work-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.work-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.25s ease;
+  font-size: 12px;
+}
+
+.service-card {
+  padding: 32px;
+  border: 1px solid #E8E8E8;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #FAFAFA;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #95E6FA, #95CAF9, #9EA4F2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  background: #F0F7FF;
+}
+
+.float-shape {
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(8px, -12px) rotate(2deg);
+  }
+  66% {
+    transform: translate(-6px, 8px) rotate(-1deg);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-word {
+  display: inline-block;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-word:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.hero-word:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
