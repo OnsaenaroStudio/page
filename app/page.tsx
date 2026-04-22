@@ -375,7 +375,7 @@ export default function Home() {
               fontWeight: 400, lineHeight: 1.05, letterSpacing: "-0.02em", marginBottom: 32,
             }}>
               온새나로는<br />
-              <span className="grad-text">잠재성을 지닌</span><br />
+              <CyclingT><br />
               <span style={{ fontStyle: "italic" }}>프로젝트를 제작합니다.</span>
             </h2>
             <p className="font-serif" style={{
