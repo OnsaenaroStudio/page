@@ -281,7 +281,7 @@ export default function Home() {
               <span style={{ fontSize: 11, color: "#BEBEBE" }}>
                 {work.year}
               </span>
-              <span className="work-arrow" onClick={() => window.open(work.link ? "#", "_blank")}>→</span>
+              <span className="work-arrow" onClick={() => window.open(work.link || "" , "_blank")}>→</span>
             </div>
           ))}
         </div>
