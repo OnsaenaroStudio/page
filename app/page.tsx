@@ -229,9 +229,9 @@ export default function Home() {
               설명
             </p>
             <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-              <button onClick={() => window.location.href = "#projects"} className="grad-border-btn">
+              <a href = "#projects" style={{ textDecoration: "none" }} className="grad-border-btn">
                 PROJECTS →
-              </button>
+              </a>
               <a href="#about" style={{
                 fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase",
                 color: "#666", textDecoration: "none",
@@ -456,9 +456,9 @@ export default function Home() {
             <span className="grad-text">함께 만들어요.</span>
           </h2>
           {/* mailto:contact@onsaenaro.site */}
-          <button onClick={() => window.location.href = "mailto:contact@onsaenaro.site"} className="grad-border-btn grad-border-btn-dark" style={{ fontSize: 12, padding: "18px 48px" }}>
+          <a href = "mailto:contact@onsaenaro.site" className="grad-border-btn grad-border-btn-dark" style={{ fontSize: 12, padding: "18px 48px" }}>
             Contact Us →
-          </button>
+          </a>
         </div>
       </section>
 
