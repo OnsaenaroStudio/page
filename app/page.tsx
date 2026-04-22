@@ -1,7 +1,7 @@
 "use client"
 
 import { Github } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const works = [
   { id: "01", title: "준비 중입니다", category: "Coming Soon", year: "2026", link: "https://github.com/OnsaenaroStudio" },
@@ -14,7 +14,16 @@ const services = [
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  
+  useEffect(() => {
+    const handleMouse = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
+    window.addEventListener("mousemove", handleMouse);
+    return () => window.removeEventListener("mousemove", handleMouse);
+  }, []);
 
+  const parallaxX = (mousePos.x / (typeof window !== "undefined" ? window.innerWidth : 1) - 0.5) * 30;
+  const parallaxY = (mousePos.y / (typeof window !== "undefined" ? window.innerHeight : 1) - 0.5) * 20;
 
   return (
     <main className="font-sans" style={{ background: "#FAFAFA", color: "#0A0A0A", overflow: "hidden" }}>
@@ -151,7 +160,7 @@ export default function Home() {
           </span>
         </div>
         <div style={{ display: "flex", gap: 40 }}>
-          {["Work", "About", "Services", "Contact"].map((item) => (
+          {["Projects", "About", "Services", "Contact"].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">{item}</a>
           ))}
         </div>
@@ -163,6 +172,31 @@ export default function Home() {
         justifyContent: "flex-end", padding: "0 48px 80px",
         position: "relative", overflow: "hidden",
       }}>
+      <div className="float-shape" style={{
+          top: "15%", right: "8%", width: 280, height: 280,
+          background: "linear-gradient(135deg, rgba(149,230,250,0.15) 0%, rgba(158,164,242,0.1) 100%)",
+          clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+          animation: "drift 8s ease-in-out infinite",
+          transform: `translate(${parallaxX * 0.8}px, ${parallaxY * 0.6}px)`,
+        }} />
+        <div className="float-shape" style={{
+          top: "30%", right: "20%", width: 120, height: 120,
+          border: "1px solid rgba(149,202,249,0.4)",
+          clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)",
+          animation: "drift 12s ease-in-out infinite reverse",
+          transform: `translate(${parallaxX * 0.4}px, ${parallaxY * 0.3}px)`,
+        }} />
+        <div className="float-shape" style={{
+          top: "20%", left: "55%", width: 400, height: 1,
+          background: "linear-gradient(90deg, transparent, rgba(149,202,249,0.5), transparent)",
+          transform: `rotate(-12deg) translate(${parallaxX * 0.2}px, ${parallaxY * 0.1}px)`,
+        }} />
+        <div className="float-shape" style={{
+          top: "50%", left: "45%", width: 180, height: 180, borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(158,164,242,0.12) 0%, transparent 70%)",
+          transform: `translate(${parallaxX * -0.3}px, ${parallaxY * -0.2}px)`,
+        }} />
+
 
         <div style={{
           position: "absolute", top: "50%", right: 48,
@@ -177,7 +211,7 @@ export default function Home() {
             fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase",
             color: "#9EA4F2", marginBottom: 32,
           }}>
-            ◆ MAKE IDEAS IN REAL
+            ◆ 
           </div>
 
           <h1 className="font-serif" style={{
@@ -195,7 +229,7 @@ export default function Home() {
               설명
             </p>
             <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-              <button className="grad-border-btn">
+              <button onClick={() => window.location.href = "#projects"} className="grad-border-btn">
                 PROJECTS →
               </button>
               <a href="#about" style={{
@@ -225,7 +259,7 @@ export default function Home() {
       }}>
         <div className="marquee-track">
           {[...Array(2)].map((_, i) =>
-            ["Web Development", "◆", "App Development", "◆", "System Design", "◆", "Open Source", "◆", "TypeScript", "◆", "Next.js", "◆"].map(
+            ["Web Development", "◆", "Open Source", "◆", "TypeScript", "◆", "Next.js", "◆", "Kotlin", "◆", "Spring Boot", "◆"].map(
               (item, j) => (
                 <span key={`${i}-${j}`} style={{
                   fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase",
@@ -240,7 +274,7 @@ export default function Home() {
       </div>
 
       {/* WORK */}
-      <section id="work" style={{ padding: "120px 48px" }}>
+      <section id="projects" style={{ padding: "120px 48px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64 }}>
           <div>
             <div style={{
@@ -266,7 +300,7 @@ export default function Home() {
         <div>
           {works.map((work) => (
             <div key={work.id} className="work-row">
-              <span style={{ fontSize: 11, color: "#BEBEBE", letterSpacing: "0.1em" }}>
+              <span onClick={() => window.open(work.link || "" , "_blank")} style={{ fontSize: 11, color: "#BEBEBE", letterSpacing: "0.1em" }}>
                 {work.id}
               </span>
               <span className="work-title font-serif" style={{
@@ -421,7 +455,8 @@ export default function Home() {
             새로운 시작을<br />
             <span className="grad-text">함께 만들어요.</span>
           </h2>
-          <button className="grad-border-btn grad-border-btn-dark" style={{ fontSize: 12, padding: "18px 48px" }}>
+          {/* mailto:contact@onsaenaro.site */}
+          <button onClick={() => window.location.href = "mailto:contact@onsaenaro.site"} className="grad-border-btn grad-border-btn-dark" style={{ fontSize: 12, padding: "18px 48px" }}>
             Contact Us →
           </button>
         </div>
@@ -434,7 +469,7 @@ export default function Home() {
         display: "flex", justifyContent: "space-between", alignItems: "center",
       }}>
         <div style={{ fontSize: 10, letterSpacing: "0.15em", color: "#444", textTransform: "uppercase" }}>
-          © 2026 온새나로 스튜디오 ALL RIGHTS RESERVED.
+          © 2026 온새나로 스튜디오 | ALL RIGHTS RESERVED.
         </div>
         <div style={{ fontSize: 10, letterSpacing: "0.15em", color: "#444", textTransform: "uppercase" }}>
           <Github onClick={() => window.open("https://github.com/OnsaenaroStudio", "_blank")} />
