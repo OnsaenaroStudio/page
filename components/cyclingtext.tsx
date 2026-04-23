@@ -14,8 +14,8 @@ export function CyclingText() {
       setTimeout(() => {
         setIndex((i) => (i + 1) % WORDS.length);
         setVisible(true);
-      }, 400);
-    }, 400);
+      }, 800);
+    }, 1600);
 
     return () => clearInterval(interval);
   }, []);
