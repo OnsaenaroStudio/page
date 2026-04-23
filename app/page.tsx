@@ -3,6 +3,7 @@
 import { Github } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { CyclingText } from "@/components/cyclingtext";
+import Link from "next/link";
 
 const works = [
   { id: "01", title: "준비 중입니다", category: "Coming Soon", year: "2026", link: "https://github.com/OnsaenaroStudio" },
@@ -150,7 +151,7 @@ export default function Home() {
         background: "rgba(250,250,250,0.85)", backdropFilter: "blur(12px)",
         borderBottom: "1px solid rgba(149,202,249,0.2)",
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12 }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://raw.githubusercontent.com/OnsaenaroStudio/.github/main/profile/onsaemiro_logo.png"
@@ -159,7 +160,7 @@ export default function Home() {
           <span className="font-serif" style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.08em" }}>
             온새나로
           </span>
-        </div>
+        </Link>
         <div style={{ display: "flex", gap: 40 }}>
           {["Projects", "About", "Services", "Contact"].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">{item}</a>
